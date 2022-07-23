@@ -1,0 +1,150 @@
+<%- include('partials/header.ejs') %>
+
+<div class="p-3">
+    <div class="card mb-4 shadow">
+        <div class="card-header bg-primary">
+           <h5 class="card-title text-light">
+            Usuarios del sistema
+           </h5>
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <button onclick="newUser();" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Agregar</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="table-user">
+                    <thead class="bg-primary text-light">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Edad</th>
+                            <th>Fecha Nacimiento</th>
+                            <th>Usuario</th>
+                            <!-- <th>Contraseña</th> -->
+                            <!-- <th>Fecha Registro</th> -->
+                            <th>Rol</th>
+                            <th>Opciones</th>
+            
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <% if (user) { %>
+                            <% user.forEach((users)=>{ %>
+
+                                <tr>
+                                    <td><%= users.Id %></td>
+                                    <td><%= users.Nombres %></td>
+                                    <td><%= users.Apellidos %></td>
+                                    <td><%= users.Edad %></td>
+                                    <td><%= users.FechaNacimiento %></td>
+                                    <td><%= users.NombreUsuario %></td>
+                                    <!-- <td><%= users.Contrasenia %></td> -->
+                                    <!-- <td><%= users.FechaRegistro %></td> -->
+                                    <td> <span class="badge bg-success"><%= users.NombreRol %></span></td>
+                                    <td>
+                                        <button onclick="alerta('<%= users.Nombres %>','<%= users.Id %>', '/eliminarUsuario');" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                                        <a href="#" class="btn btn-outline-success"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    </td>
+                                </tr>
+                           <% }) %>
+                        <%  } %>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ingresar Nuevo usuario ================================= -->
+    <div class="modal fade" tabindex="-1" id="newUser">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header bg-primary">
+              <h5 class="modal-title text-light"><i class="fa-solid fa-user-plus"></i> Registrar Nuevo usuario</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+                <form method="POST" action="/IngresarUsuarios">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" id="nombres" name="nombres" type="text" placeholder="Nombres" />
+                                <label for="inputFirstName">Nombres</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input class="form-control" id="apellidos" name="apellidos" type="text" placeholder="Apellidos" />
+                                <label for="inputLastName">Apellidos</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="edad" name="edad" type="number" placeholder="Edad" />
+                        <label for="inputEmail">Edad</label>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" type="date" name="date" id="date" placeholder="Fecha Nacimiento" />
+                                <label for="inputPassword">Fecha Nacimiento</label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" id="usuario" name="usuario"type="text" placeholder="Nombre Usuario" />
+                                <label for="inputPasswordConfirm">Nombre Usuario</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <select name="rol" id="rol" class="form-select">
+                                <option selected>Roles</option>
+                                <% if (rol) { %>
+                                    <% rol.forEach((roles)=>{ %>
+                                        <option value='<%= roles.Id %>'><%= roles.NombreRol %></option>
+                                    <% }) %>
+                                <% } %>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-6 mt-3">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" id="pass" name="pass" type="password" placeholder="Contraseña" />
+                                <label for="inputPasswordConfirm">Contraseña</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control"  id="pass2" name="pass2" type="password" placeholder="Confirma la contraseña" />
+                                <label for="inputPasswordConfirm">Confirma la Contraseña</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mt-4 mb-0">
+                        <div class="text-end">
+                            <button id="boton" type="submit"class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>  Guardar Cambios</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i> Cerrar</button>
+                        </div>
+                        
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer bg-primary">
+                
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('partials/footer.ejs') %>

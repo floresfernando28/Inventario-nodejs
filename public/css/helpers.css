@@ -1,0 +1,77 @@
+
+/* Variables personalizadas de Colores ==========================================>*/
+:root {
+    --color1:     #fff;
+    --color2:     #000;
+    --color3:     #ccc;
+    --color4:     #141414;
+    --color5:     #ffb43a;
+    --color6:     #1e1e2a;
+    --color7:     #2d2d2e37; 
+    --color8:     #fcfeff;
+    --color9:     #e50914;
+    --color10:    #d1d1d1d1;
+    --color11:    #aaa;
+    --color12:    hsl(211,100%,50%);
+    --color13:    hsl(37,94%,57%);
+    --color14:    hsla(0,79%,63%,0.5);
+    --color15:    hsl(214,84%,56%);
+    --color16:    hsl(219,32%,10%);
+    --color17:    hsl(0,79%,63%);
+    --color18:    hsla(218,39%,14%,0.8);
+    --color19:    hsl(45,100%,54%);
+    --color20:    hsl(0,0%,88%);
+    --color21:    hsl(222,25%,10%);
+    --color22:    rgba(0,0,0,0.4);
+    --color23:    rgba(0,0,0,0.5);
+    --color24:    rgba(255,255,255,0.25);
+    --color25:    rgba(255,255,255,1);
+    --color26:    #7380ec;
+    --color27:    #ff7782;
+    --color28:    #41f1b6;
+    --color29:    #ffbb55;
+    --colorInforDark: #7d8da1;
+    --colorInfoLight: #dce1eb;
+    --colorDark:      #363944;
+    --colorLight:      rgba(132,139,200,0.18);
+    --colorPimaryVarient:  #677483;
+    --colorBackground:     #f6f6f9;
+    --box-shadow:          0 2rem 3rem rgba(132,139,200,0.18);
+    --color30:         #212529;
+
+
+
+    /* Background */
+
+    --Degradado__fondo:   linear-gradient(8deg, hsl(240 17% 14% / 74%) 14%,
+                                         hsl(240 17% 14% / 14%) 44%); 
+
+    /* Animaciones ===============================================> */
+
+    @keyframes animate {
+        0%{
+            box-shadow: 0 0 0 0 rgb(255, 180, 58, 0.7);
+        }
+        40%{
+            box-shadow: 0 0 0 30px  rgb(255, 193, 7, 0);
+        }
+        80%{
+            box-shadow: 0 0 0 20px rgb(255, 193, 7, 0);
+        }
+        100%{
+            box-shadow: 0 0 0 0 rgb(255, 193, 7, 0);
+        }
+    }
+
+    /* Animación para el wave =====================> */
+
+    @keyframes wave{
+        0%{
+            background-position-x: 0;
+        }
+        100%{
+            background-position-x:1000px;
+        }
+    }
+                            
+}

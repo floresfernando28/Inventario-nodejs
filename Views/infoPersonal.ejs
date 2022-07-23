@@ -1,0 +1,109 @@
+
+<%- include('partials/header.ejs') %>
+
+<div class="p-3">
+    <div class="card">
+        <div class="card-header bg-primary text-light">
+            <h5 class="card-title">
+                Información Personal  <i class="fa-solid fa-user-pen"></i>
+            </h5>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card-body">
+                    <div class="card-text text-muted">
+                        <ul class="list-group list-group-flush card shadow">
+                            <li class="list-group-item"><b>Nombres</b> <br>Fernando José</li>
+                            <li class="list-group-item"><b>Apellidos</b> <br>Flores Mendoza</li>
+                            <li class="list-group-item"><b>Edad</b> <br>20 años</li>
+                            <li class="list-group-item"><b>Fecha Nacimiento</b> <br>28/03/2002</li>
+                            <li class="list-group-item"><b>Nombre Usuario</b> <br>fflores28</li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <b>Rol</b>
+                                    </div>
+                                    <div class="col-4">
+                                        <span class="badge bg-success">Administrador</span>
+                                    </div>
+                                </div>
+                            
+                            </li>
+                            <div class=" d-grid text-end">
+    
+                                <button onclick="modalInfoPersonal();" class="btn btn-primary">Editar <i class="fa-solid fa-user-gear"></i></button>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <img class="card-img-top img-fluid" src="img/informacion.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal de editar ================================= -->
+    <div class="modal fade" tabindex="-1" id="modalInfoPersonal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header bg-primary">
+              <h5 class="modal-title text-light">Actualizar Información Personal</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+                <form>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Nombres" />
+                                <label for="inputFirstName">Nombres</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input class="form-control" id="inputLastName" type="text" placeholder="Apellidos" />
+                                <label for="inputLastName">Apellidos</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="inputEmail" type="number" placeholder="Edad" />
+                        <label for="inputEmail">Edad</label>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" id="inputPassword" type="date" placeholder="Fecha Nacimiento" />
+                                <label for="inputPassword">Fecha Nacimiento</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" id="inputPasswordConfirm" type="text" placeholder="Nombre Usuario" />
+                                <label for="inputPasswordConfirm">Nombre Usuario</label>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mt-4 mb-0">
+                        <div class="text-end">
+                            <a class="btn btn-primary" href="#">Guardar Cambios</a>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                        
+                    </div>
+
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
+
+  
