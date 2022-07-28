@@ -7,6 +7,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login - sistema</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,300&display=swap" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -18,19 +21,25 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header text-center">
+                                        <!-- <h3 class="text-center font-weight-light my-4 card-title">Login</h3> -->
+
+                                        <img id="img" src="img/logo.jpg" alt="" class="img-fluid">
+                                    </div>
+                                    
                                     <div class="card-body">
-                                        <form action="" method="">
+                                        <form action="/loguearse" method="POST" id="loguearse" >
                                             <div class="form-floating mb-3">
-                                                <input autofocus class="form-control" id="inputEmail" type="text" placeholder="usuario" />
+                                                <input autofocus class="form-control"  type="text" placeholder="user" id="user" name="user" />
                                                 <label for="inputEmail">usuario</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Contraseña" />
+                                                <input class="form-control" type="password" placeholder="Contraseña" id="pass" name="pass" />
                                                 <label for="inputPassword">Contraseña</label>
                                             </div>
+                                            
                                             <div class="pt-2 d-flex gap-3 justify-content-end mb-3">
-                                                <a href="/" class="btn btn-primary">Acceder</a>
+                                                <button type="submit" href="#" class="btn btn-primary">Acceder</button>
                                             </div>
                                         </form>
                                     </div>
@@ -54,9 +63,31 @@
                         </div>
                     </div>
                 </footer>
-            </div>
+            </div
         </div>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+        <script src="js/alerts.js"></script>
+        <script src="js/login.js"></script>
+
+        <% if (alerta) { %>
+            <script>
+                Swal.fire({
+                    title: '<%= titulo %>',
+                    text: '<%= texto %>',
+                    icon: '<%= icono %>',
+                    showConfirmButton: '<%= boton %>',
+                    timer: false,
+                }).then((results)=>{
+                    if(results.isConfirmed){
+                        window.location = '<%= ruta %>'
+                    }
+                })
+
+
+
+            </script>
+        <% } %>
     </body>
 </html>

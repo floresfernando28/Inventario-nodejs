@@ -13,24 +13,28 @@
             <div class="col-md-5">
                 <div class="card-body">
                     <div class="card-text text-muted">
-                        <ul class="list-group list-group-flush card shadow">
-                            <li class="list-group-item"><b>Nombres</b> <br>Fernando José</li>
-                            <li class="list-group-item"><b>Apellidos</b> <br>Flores Mendoza</li>
-                            <li class="list-group-item"><b>Edad</b> <br>20 años</li>
-                            <li class="list-group-item"><b>Fecha Nacimiento</b> <br>28/03/2002</li>
-                            <li class="list-group-item"><b>Nombre Usuario</b> <br>fflores28</li>
-                            <li class="list-group-item">
-                                <div class="row">
+                        <% if (user) { %>
+
+                            <ul class="list-group list-group-flush card shadow">
+                                <li class="list-group-item"><b>Nombres</b> <br><%= user.Nombres %></li>
+                                <li class="list-group-item"><b>Apellidos</b> <br><%= user.Apellidos %></li>
+                                <li class="list-group-item"><b>Edad</b> <br><%= user.Edad %></li>
+                                <li class="list-group-item"><b>Fecha Nacimiento</b> <br><%= user.FechaNacimiento %></li>
+                                <li class="list-group-item"><b>Nombre Usuario</b> <br><%= user.NombreUsuario %></li>
+                                <li class="list-group-item">
+                        <% } %>
+                                    <div class="row">
                                     <div class="col-8">
                                         <b>Rol</b>
                                     </div>
                                     <div class="col-4">
-                                        <span class="badge bg-success">Administrador</span>
+                                        <span class="badge bg-success"><%= user.NombreRol %></span>
                                     </div>
                                 </div>
                             
                             </li>
-                            <div class=" d-grid text-end">
+                            <div class="p-4">
+                                <a href="/cambiarContrasenia/<%= user.Id %>" class="btn btn-danger">Cambiar Password <i class="fa-solid fa-lock"></i></a>
     
                                 <button onclick="modalInfoPersonal();" class="btn btn-primary">Editar <i class="fa-solid fa-user-gear"></i></button>
                             </div>

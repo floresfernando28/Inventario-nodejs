@@ -8,6 +8,16 @@ function newUser(){
     newUser.show();
 }
 
+function alerta2(titulo,texto, icon){
+    Swal.fire({
+        title: titulo ,
+        text: texto,
+        icon: icon,
+        showConfirmButton: true,
+        showCancelButton: false,
+        timer: false
+    })
+}
 
 function alerta (nombre,id,ruta){
     Swal.fire({

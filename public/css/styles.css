@@ -1,4 +1,11 @@
 @charset "UTF-8";
+
+#img {
+  /* border-radius: 50%; */
+  height: 140px;
+  width: 160px
+}
+
 /*!
 * Start Bootstrap - SB Admin v7.0.5 (https://startbootstrap.com/template/sb-admin)
 * Copyright 2013-2022 Start Bootstrap
@@ -13,6 +20,7 @@
 
  body{
     background-color: var(--colorBackground) !important;
+    font-family: 'Poppins', sans-serif !important;
  }
 :root {
   --bs-blue: #0d6efd;

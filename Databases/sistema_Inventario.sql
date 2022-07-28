@@ -20,10 +20,6 @@ CREATE TABLE usuarios(
 );
 
 
-
-
--- Procedimientos almacenados usados para este sistema
-
 CREATE PROCEDURE sp_insertar_user(
     IN Nombres VARCHAR(60),
     IN Apellidos VARCHAR(60),
@@ -36,5 +32,5 @@ CREATE PROCEDURE sp_insertar_user(
 BEGIN
     INSERT INTO usuarios (Nombres,Apellidos,Edad,FechaNacimiento,NombreUsuario,Contrasenia,IdRol)
     VALUES(Nombres, Apellidos, Edad,FechaNacimiento
-        NombreUsuario, Contrasenia, IdRol);
-END
+        NombreUsuario, Contrasenia, IdRol)
+END;
